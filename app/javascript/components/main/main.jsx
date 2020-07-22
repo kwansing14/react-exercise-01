@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import './main.css';
+
 import ButtonIn from '../button/buttonIn';
 import ButtonOut from '../button/buttonOut';
+import ButtonLoading from '../button/buttonLoading';
 
 import axios from 'axios';
 import moment from 'moment';
@@ -13,7 +15,8 @@ class App extends React.Component {
       clockin: '-',
       clockout: '-',
       username: 'John',
-      jobtitle: 'Barista'
+      jobtitle: 'Barista',
+      loading: false
     }
     console.log("constructor")
     // set start
@@ -43,6 +46,7 @@ class App extends React.Component {
   // when clockin
   liftButtonIn(){
     //after click, do a post
+    this.loading()
     axios.post('/clockins.json',{
       location: this.state.location,
       user_id: '1'
@@ -53,6 +57,7 @@ class App extends React.Component {
       .then((response) => {
         let latestDate = response.data[response.data.length-1].created_at
         let latestDate2 = moment(latestDate).format('LTS')
+        this.setState({ loading: false })
         this.setState({ clockin: latestDate2})
         this.componentDidMount()
       }).catch((error) => {
@@ -67,6 +72,7 @@ class App extends React.Component {
   // when clockout
   liftButtonOut(){
     console.log('this')
+    this.loading()
     //after click, do a post
     axios.post('/clockouts.json',{
       location: this.state.location,
@@ -80,6 +86,7 @@ class App extends React.Component {
         console.log(response.data)
         let latestDate = response.data[response.data.length-1].created_at
         let latestDate2 = moment(latestDate).format('LTS')
+        this.setState({ loading: false })
         this.setState({ clockout: latestDate2})
       }).catch((error) => {
         console.log(error)
@@ -88,6 +95,10 @@ class App extends React.Component {
     .catch((error) => {
       console.log(error)
     });
+  }
+
+  loading(){
+    this.setState({loading: true})
   }
 
   componentDidMount(){
@@ -108,6 +119,10 @@ class App extends React.Component {
     let button = (<ButtonIn liftButtonIn={()=>{this.liftButtonIn()}}/>);
     if (this.state.clockin > this.state.clockout) {
       button = (<ButtonOut liftButtonOut={()=>{this.liftButtonOut()}}/>)
+    }
+    if (this.state.loading === true) {
+      console.log('loading')
+      button = (<ButtonLoading/>)
     }
 
     return (
