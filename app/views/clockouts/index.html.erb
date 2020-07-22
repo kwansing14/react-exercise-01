@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Clockouts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Location</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clockouts.each do |clockout| %>
+      <tr>
+        <td><%= clockout.location %></td>
+        <td><%= clockout.user_id %></td>
+        <td><%= link_to 'Show', clockout %></td>
+        <td><%= link_to 'Edit', edit_clockout_path(clockout) %></td>
+        <td><%= link_to 'Destroy', clockout, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Clockout', new_clockout_path %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @clockout.location %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @clockout.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_clockout_path(@clockout) %> |
+<%= link_to 'Back', clockouts_path %>

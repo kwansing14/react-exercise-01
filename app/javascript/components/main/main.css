@@ -1,0 +1,71 @@
+* {
+	font-family: Roboto;
+	font-style: normal;
+	color: #777777;
+}
+
+.col {
+	width:50%;
+}
+
+.clockbody {
+	display:flex;
+}
+.top {
+	display:flex;
+	margin-top: 80px;
+}
+
+.date {
+	font-size: 16px;
+	line-height: 36px;
+	text-align: right;
+}
+
+.location {
+	font-size: 16px;
+	text-align: right;
+}
+
+.jobtitle {
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 22px;
+	line-height: 36px;
+	color: #777777;
+}
+
+.username {
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 16px;
+	line-height: 24px;
+	/* identical to box height, or 150% */
+	color: #777777;
+}
+
+.clockin {
+	width: 50%;
+	margin-top: 64px;
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 26px;
+	/* identical to box height, or 162% */
+	color: #777777;
+}
+
+.clockout {
+	width: 50%;
+	margin-top: 64px;
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 26px;
+	/* identical to box height, or 162% */
+	color: #777777;
+}
