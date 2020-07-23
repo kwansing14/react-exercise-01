@@ -150,12 +150,12 @@ class App extends React.Component {
           <div className='clockin'>
             Clock In:
             <br/>
-            {this.state.clockin}
+            <span className='time'>{this.state.clockin}</span>
           </div>
           <div className='clockout'>
             Clock Out:
             <br/>
-            {this.state.clockout}
+            <span className='time'>{this.state.clockout}</span>
           </div>
         </div>
         <div>

@@ -69,3 +69,7 @@
 	/* identical to box height, or 162% */
 	color: #777777;
 }
+
+.time{
+	font-size:24px;
+}
